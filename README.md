@@ -1,6 +1,6 @@
-## Netflix Clone Nextjs: A study.
+## Netflix Clone Nextjs
 Building a Netflix Clone using Nextjs 14.
-## Tech Stack
+## Technology Stack
 - Nextjs
 - Next Auth
 - Prisma
