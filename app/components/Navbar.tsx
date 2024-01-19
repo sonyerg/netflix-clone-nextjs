@@ -50,7 +50,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href={link.href}
-                    className="text-white fomt-semibold underline text-small"
+                    className="text-white fomt-semibold underline text-sm"
                   >
                     {link.name}
                   </Link>
