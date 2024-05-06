@@ -7,12 +7,12 @@ import { usePathname } from "next/navigation";
 import { Bell, Search } from "lucide-react";
 import UserNav from "./UserNav";
 
-interface linkProps {
-  name: string;
-  href: string;
-}
+// interface linkProps {
+//   name: string;
+//   href: string;
+// }
 
-const links: linkProps[] = [
+const links: { name: string; href: string }[] = [
   {
     name: "Home",
     href: "/home",
@@ -50,7 +50,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     href={link.href}
-                    className="text-white fomt-semibold underline text-sm"
+                    className="text-white font-semibold underline text-sm"
                   >
                     {link.name}
                   </Link>
