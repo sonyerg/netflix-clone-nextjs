@@ -14,6 +14,7 @@ export default async function HomeLayout({
   if (!session) {
     return redirect("/login");
   }
+
   return (
     <>
       <Navbar />
