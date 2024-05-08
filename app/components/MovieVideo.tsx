@@ -24,10 +24,10 @@ export default async function MovieVideo() {
     <div className="h-[55vh] lg:h-[60vh] w-full flex justify-start  items-center">
       <video
         poster={data?.imageString}
+        // src={data?.videoSource}
         autoPlay
         loop
         muted
-        // src={data?.videoSource}
         className="w-full -z-10 left-0 top-0 h-[60vh] object-cover absolute brightness-[60%]"
       ></video>
 
