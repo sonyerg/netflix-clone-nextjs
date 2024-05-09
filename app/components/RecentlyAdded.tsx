@@ -38,6 +38,9 @@ export default async function RecentlyAdded() {
             height={400}
             className="absolute rounded-sm w-full h-full object-cover"
           />
+          {/* "absolute" takes over its parent container
+              "relative" follows its parent container
+          */}
 
           {/*show only when user is hovering: opacity-0*/}
           <div
