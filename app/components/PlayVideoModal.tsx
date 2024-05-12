@@ -36,7 +36,7 @@ export default function PlayVideoModal({
   }
 
   function handleChangeState() {
-    changeState((prev: any) => !prev);
+    changeState((prev: boolean) => !prev);
   }
 
   return (

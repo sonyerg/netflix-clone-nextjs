@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import prisma from "../utils/db";
+import { env } from "process";
+import MovieVidButtons from "./MovieVidButtons";
 
 async function getData() {
   const data = await prisma.movie.findFirst({
@@ -20,11 +22,13 @@ async function getData() {
 
 export default async function MovieVideo() {
   const data = await getData();
+  const isDev = process.env.NODE_ENV;
+
   return (
     <div className="h-[55vh] lg:h-[60vh] w-full flex justify-start  items-center">
       <video
         poster={data?.imageString}
-        // src={data?.videoSource}
+        src={isDev ? undefined : data?.videoSource}
         autoPlay
         loop
         muted
@@ -37,8 +41,15 @@ export default async function MovieVideo() {
         </h1>
         <p className="text-white text-lg mt-5 line-clamp-3">{data?.overview}</p>
         <div className="flex gap-x-3 mt-4">
-          <Button>See More</Button>
-          <Button>Learn More</Button>
+          <MovieVidButtons
+            overview={data?.overview as string}
+            title={data?.title as string}
+            youtubeUrl={data?.videoSource as string}
+            release={data?.release as number}
+            duration={data?.duration as number}
+            age={data?.age as number}
+            key={data?.id}
+          />
         </div>
       </div>
     </div>

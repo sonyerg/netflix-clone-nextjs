@@ -1,6 +1,7 @@
 import Image from "next/image";
 import prisma from "../utils/db";
 import MovieCard from "./MovieCard";
+import { Suspense } from "react";
 
 async function getData() {
   const data = await prisma.movie.findMany({
