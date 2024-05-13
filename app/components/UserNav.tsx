@@ -12,7 +12,13 @@ import {
 import { signOut } from "next-auth/react";
 import React from "react";
 
-export default function UserNav() {
+export default function UserNav({
+  userName,
+  userEmail,
+}: {
+  userName: string;
+  userEmail: string;
+}) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -26,9 +32,9 @@ export default function UserNav() {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel>
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">Erick</p>
+            <p className="text-sm font-medium leading-none">{userName}</p>
             <p className="text-xs leading-none text-muted-foreground">
-              erick@email.com
+              {userEmail}
             </p>
           </div>
         </DropdownMenuLabel>
