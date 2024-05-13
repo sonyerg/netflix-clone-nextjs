@@ -30,7 +30,7 @@ async function getData(userId: string) {
   return data;
 }
 
-export default async function WatchList(params: { params: {} }) {
+export default async function WatchList() {
   const session = await getServerSession(authOptions);
   const data = await getData(session?.user?.email as string);
 
