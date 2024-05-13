@@ -97,7 +97,7 @@ export default async function CategoryPage({
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-5 sm:px-0 mt-10 gap-6">
       {data.map((movie) => (
         <Suspense key={movie.id}>
-          <div key={movie.id} className="relative h-48">
+          <div className="relative h-48">
             <Image
               src={movie.imageString}
               alt={movie.title}
