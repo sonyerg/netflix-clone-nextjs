@@ -3,6 +3,7 @@ import prisma from "../utils/db";
 import MovieCard from "./MovieCard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../utils/auth";
+import { Suspense } from "react";
 
 async function getData(userId: string) {
   const data = await prisma.movie.findMany({
@@ -38,13 +39,15 @@ export default async function RecentlyAdded() {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-8 gap-6">
       {data.map((movie) => (
         <div key={movie.id} className="relative h-48">
-          <Image
-            src={movie.imageString}
-            alt={movie.title}
-            width={500}
-            height={400}
-            className="absolute rounded-sm w-full h-full object-cover"
-          />
+          <Suspense fallback="loading..">
+            <Image
+              src={movie.imageString}
+              alt={movie.title}
+              width={500}
+              height={400}
+              className="absolute rounded-sm w-full h-full object-cover"
+            />
+          </Suspense>
           {/* "absolute" takes over its parent container
               "relative" follows its parent container
           */}

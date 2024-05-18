@@ -6,7 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 interface iAppProps {
   title: string;
@@ -61,7 +61,9 @@ export default function PlayVideoModal({
             <p className="font-normal text-sm">{duration}h</p>
           </div>
         </DialogHeader>
-        <iframe src={youtubeUrl} height={250} className="w-full"></iframe>
+        <Suspense fallback="Video loading">
+          <iframe src={youtubeUrl} height={250} className="w-full"></iframe>
+        </Suspense>
       </DialogContent>
     </Dialog>
   );

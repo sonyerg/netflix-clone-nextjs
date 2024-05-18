@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
+import { Suspense } from "react";
 import prisma from "../utils/db";
-import { env } from "process";
 import MovieVidButtons from "./MovieVidButtons";
 
 async function getData() {
@@ -26,14 +25,16 @@ export default async function MovieVideo() {
 
   return (
     <div className="h-[55vh] lg:h-[60vh] w-full flex justify-start  items-center">
-      <video
-        poster={data?.imageString}
-        src={isDev ? undefined : data?.videoSource}
-        autoPlay
-        loop
-        muted
-        className="w-full -z-10 left-0 top-0 h-[60vh] object-cover absolute brightness-[60%]"
-      ></video>
+      <Suspense>
+        <video
+          poster={data?.imageString}
+          src={isDev ? undefined : data?.videoSource}
+          autoPlay
+          loop
+          muted
+          className="w-full -z-10 left-0 top-0 h-[60vh] object-cover absolute brightness-[60%]"
+        ></video>
+      </Suspense>
 
       <div className="w-[90%] lg:w-[40%] mx-auto absolute">
         <h1 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl">
