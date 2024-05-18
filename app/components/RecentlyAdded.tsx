@@ -39,7 +39,7 @@ export default async function RecentlyAdded() {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-8 gap-6">
       {data.map((movie) => (
         <div key={movie.id} className="relative h-48">
-          <Suspense fallback="loading..">
+          <Suspense fallback={<p>Loading...</p>}>
             <Image
               src={movie.imageString}
               alt={movie.title}
