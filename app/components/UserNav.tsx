@@ -25,7 +25,7 @@ export default function UserNav({
         <Button variant="ghost" className="relative h-10 w-10 rounded-sm">
           <Avatar className="h-10 w-10 rounded-sm">
             <AvatarImage src="https://scxkawnfmuajetbzpinw.supabase.co/storage/v1/object/public/user%20image/avatar.png?t=2024-01-18T07%3A59%3A59.111Z" />
-            <AvatarFallback className="rounded-sm">Erick</AvatarFallback>
+            <AvatarFallback className="rounded-sm">{userName}</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
